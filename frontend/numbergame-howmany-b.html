@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Atenea</title>
+        <link rel="icon" href="img/favicon.ico"/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+        <link rel="stylesheet" href="lib/style.css">
+    </head>
+
+    <body id="bg" style="background-image: url('img/background.jpg');">
+            <div class="header">
+                <div class="col-md-1" style="padding: 16px; text-align: center;">
+                    <a href="index.html" class="btn" role="button">
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                    </a>
+                    <a href="numbergames.html" class="btn" role="button">
+                        <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div>
+                    <h1>¿Cuántos hay?</h1>
+                </div>
+            </div>
+            <div class="container">
+                <img src="img/howmany/books4.jpg">
+            </div>
+        </div>
+    </body>
+
+    <script>
+        var xhr = null;
+        function sleep(ms){
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        getXmlHttpRequestObject = function () {
+            if (!xhr) {
+                // Create a new XMLHttpRequest object 
+                xhr = new XMLHttpRequest();
+            }
+            return xhr;
+        };
+        async function sendDataCallback() {
+            sleep(25000).then(() => {
+                // Check response
+                if (xhr.status == 201) {
+                    console.log("Correct answer!");
+                    window.location.href = "correct.html";
+                }
+                else if(xhr.status == 202){
+                    console.log("Wrong answer!");
+                    window.location.href = "wrong.html";
+                }
+            });
+        }
+        function sendData() {
+            console.log("before sending")
+            xhr = getXmlHttpRequestObject();
+            xhr.onreadystatechange = sendDataCallback;
+            // asynchronous requests
+            xhr.open("POST", "http://localhost:6969/check", true);
+            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            // Send the request over the network
+            xhr.send(JSON.stringify({"data": 4}));
+            console.log("after sending")
+        }
+    </script>
+</html>

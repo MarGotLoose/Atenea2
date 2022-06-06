@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Atenea</title>
+        <link rel="icon" href="img/favicon.ico"/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+        <link rel="stylesheet" href="lib/style.css">
+    </head>
+
+    <body id="bg" style="background-image: url('img/background.jpg');">
+        <div class="header">
+            <div class="col-md-1" style="padding: 16px; text-align: center;">
+                <a href="index.html" class="btn" role="button">
+                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                </a>
+            </div>
+            <div>
+                <h1>¡Noooo!</h1>
+            </div>
+        </div>
+            <div class="container">
+                <img src="img/wrong.png" width="100%" height="auto">
+                <audio controls autoplay src="audio/wrong.mp3" type="audio/mp3"></audio>
+                <div class="col-md-6">
+                    <button onclick="openNext()" class="btn btn-warning mr-5">Siguiente</button>
+                </div> 
+            </div>
+        </div>
+    </body>
+
+    <script>
+        var url = getURL();
+        var v1 = url.split("?").pop();
+        console.log(v1);
+        function getURL() {
+            return window.location.href;
+        }
+        function openNext(){
+            switch (v1){
+                case "a":
+                    window.location.href = "numbergame-howmany-b.html";
+                case "b":
+                    window.location.href = "numbergame-howmany-c.html";
+                case "c":
+                    window.location.href = "numbergame-howmany-d.html";
+                case "d":
+                    window.location.href = "numbergame-howmany-e.html";
+                case "e":
+                    window.location.href = "numbergame-howmany-f.html";
+                case "f":
+                    window.location.href = "numbergame-howmany-g.html";
+                case "g":
+                    window.location.href = "numbergame-howmany-h.html";
+                case "h":
+                    window.location.href = "numbergame-howmany-i.html";
+            }
+        }
+    </script>
+</html>
