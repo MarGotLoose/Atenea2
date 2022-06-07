@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="lib/style.css">
     </head>
 
-    <body id="bg" style="background-image: url('img/background.jpg');">
+    <body id="bg" style="background-image: url('img/background.jpg');" onload="sendData()">
             <div class="header">
                 <div class="col-md-1" style="padding: 16px; text-align: center;">
                     <a href="index.html" class="btn" role="button">
@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="container">
-                <img src="img/howmany/people2.jpg">
+                <img src="img/howmany/people2.jpg" width="100%" height="auto">
             </div>
         </div>
     </body>
@@ -53,11 +53,11 @@
                 // Check response
                 if (xhr.status == 201) {
                     console.log("Correct answer!");
-                    window.location.href = "correct.html";
+                    window.location.href = "correct.html?sc=h";
                 }
                 else if(xhr.status == 202){
                     console.log("Wrong answer!");
-                    window.location.href = "wrong.html";
+                    window.location.href = "wrong.html?sc=h";
                 }
             });
         }

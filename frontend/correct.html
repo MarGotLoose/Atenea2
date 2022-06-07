@@ -20,31 +20,39 @@
         var url = getURL();
         var v1 = url.split("=").pop();
         console.log(v1);
-        const button = document.getElementById("btnNext");
-        button.addEventListener("click", openNext);
         function getURL() {
             return window.location.href;
         }
         function openNext() {
             console.log("funcion puta");
-            switch (v1){
-                case 'a':
-                    console.log("funciona");
-                    window.location.href = "numbergame-howmany-b.html";
-                case 'b':
-                    window.location.href = "numbergame-howmany-c.html";
-                case 'c':
-                    window.location.href = "numbergame-howmany-d.html";
-                case 'd':
-                    window.location.href = "numbergame-howmany-e.html";
-                case 'e':
-                    window.location.href = "numbergame-howmany-f.html";
-                case 'f':
-                    window.location.href = "numbergame-howmany-g.html";
-                case 'g':
-                    window.location.href = "numbergame-howmany-h.html";
-                case 'h':
-                    window.location.href = "numbergame-howmany-i.html";
+            if(v1=="a"){
+                console.log("B");
+                window.location.href = "numbergame-howmany-b.html";
+            }
+            else if(v1=="b"){
+                console.log("C");
+                window.location.href = "numbergame-howmany-c.html";
+            }
+            else if(v1=="c"){
+                window.location.href = "numbergame-howmany-d.html";
+            }
+            else if(v1=="d"){
+                window.location.href = "numbergame-howmany-e.html";
+            }
+            else if(v1=="e"){
+                window.location.href = "numbergame-howmany-f.html";
+            }
+            else if(v1=="f"){
+                window.location.href = "numbergame-howmany-g.html";
+            }
+            else if(v1=="g"){
+                window.location.href = "numbergame-howmany-h.html";
+            }
+            else if(v1=="h"){
+                window.location.href = "numbergame-howmany-i.html";
+            }
+            else if(v1=="i"){
+                window.location.href = "numbergames.html";
             }
         }
     </script>
@@ -64,7 +72,7 @@
                 <img src="img/correct.png" width="100%" height="auto">
                 <audio autoplay src="audio/right.mp3" type="audio/mp3"></audio>
                 <div class="col-md-6">
-                    <button id="btnNext" class="btn btn-warning mr-5" type="button">Siguiente</button>
+                    <button class="btn btn-warning mr-5" type="button" onclick="openNext();">Continuar</button>
                 </div> 
             </div>
         </div>

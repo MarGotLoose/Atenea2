@@ -16,6 +16,47 @@
         <link rel="stylesheet" href="lib/style.css">
     </head>
 
+    <script>
+        var url = getURL();
+        var v1 = url.split("=").pop();
+        console.log(v1);
+        function getURL() {
+            return window.location.href;
+        }
+        function openNext() {
+            console.log("funcion puta");
+            if(v1=="a"){
+                console.log("B");
+                window.location.href = "numbergame-howmany-b.html";
+            }
+            else if(v1=="b"){
+                console.log("C");
+                window.location.href = "numbergame-howmany-c.html";
+            }
+            else if(v1=="c"){
+                window.location.href = "numbergame-howmany-d.html";
+            }
+            else if(v1=="d"){
+                window.location.href = "numbergame-howmany-e.html";
+            }
+            else if(v1=="e"){
+                window.location.href = "numbergame-howmany-f.html";
+            }
+            else if(v1=="f"){
+                window.location.href = "numbergame-howmany-g.html";
+            }
+            else if(v1=="g"){
+                window.location.href = "numbergame-howmany-h.html";
+            }
+            else if(v1=="h"){
+                window.location.href = "numbergame-howmany-i.html";
+            }
+            else if(v1=="i"){
+                window.location.href = "numbergames.html";
+            }
+        }
+    </script>
+
     <body id="bg" style="background-image: url('img/background.jpg');">
         <div class="header">
             <div class="col-md-1" style="padding: 16px; text-align: center;">
@@ -29,40 +70,11 @@
         </div>
             <div class="container">
                 <img src="img/wrong.png" width="100%" height="auto">
-                <audio controls autoplay src="audio/wrong.mp3" type="audio/mp3"></audio>
+                <audio autoplay src="audio/wrong.mp3" type="audio/mp3"></audio>
                 <div class="col-md-6">
                     <button onclick="openNext()" class="btn btn-warning mr-5">Siguiente</button>
                 </div> 
             </div>
         </div>
     </body>
-
-    <script>
-        var url = getURL();
-        var v1 = url.split("?").pop();
-        console.log(v1);
-        function getURL() {
-            return window.location.href;
-        }
-        function openNext(){
-            switch (v1){
-                case "a":
-                    window.location.href = "numbergame-howmany-b.html";
-                case "b":
-                    window.location.href = "numbergame-howmany-c.html";
-                case "c":
-                    window.location.href = "numbergame-howmany-d.html";
-                case "d":
-                    window.location.href = "numbergame-howmany-e.html";
-                case "e":
-                    window.location.href = "numbergame-howmany-f.html";
-                case "f":
-                    window.location.href = "numbergame-howmany-g.html";
-                case "g":
-                    window.location.href = "numbergame-howmany-h.html";
-                case "h":
-                    window.location.href = "numbergame-howmany-i.html";
-            }
-        }
-    </script>
 </html>
