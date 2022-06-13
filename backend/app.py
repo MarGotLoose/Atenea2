@@ -97,7 +97,7 @@ def augmentAruco(bbox, id, img, imgAug, drawID=True):
     return imgOut
     
 def detection():
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(1)
     augDics = loadAugImages("markers")
     while True:
         success, img = cap.read()
