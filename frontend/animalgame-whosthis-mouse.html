@@ -38,14 +38,31 @@
                 </a>
             </div>
         </div>
-        <div class="container">
-            <img src="img/whosthis/question.png" width="50%" height="auto">
-            <audio autoplay src="audio/whosthis/mouse-sound.mp3" type="audio/mp3"></audio>
+        <div class="row">
+            <div class="col-md-8 media">
+                <img src="img/whosthis/question.png" width="75%" height="auto">
+                <audio autoplay src="audio/whosthis/mouse-sound.mp3" type="audio/mp3"></audio>
+            </div>      
+            <div class="col-md-2" style="align-items: center; position: absolute; right: 0; bottom: 15px;">
+                <button id="replayBtn" type="button" class="btn btn-warning btnSize">
+                    <span class="glyphicon glyphicon-play"></span> Repetir
+                </button>
+            </div>
         </div>
     </body>
 
     <script>
         var xhr = null;
+        var url = getURL();
+        var v1 = url.split("=").pop();
+        const audio = new Audio("audio/whosthis/mouse-sound.mp3");
+        const button = document.getElementById("replayBtn");
+        button.addEventListener("click", () => {
+            audio.play();
+        });
+        function getURL() {
+            return window.location.href;
+        }
         function sleep(ms){
             return new Promise(resolve => setTimeout(resolve, ms));
         }
@@ -61,11 +78,11 @@
                 // Check response
                 if (xhr.status == 201) {
                     console.log("Correct answer!");
-                    window.location.href = "correct-mouse.html?sc=u";
+                    window.location.href = "correct-mouse.html?sc="+v1;
                 }
                 else if(xhr.status == 202){
                     console.log("Wrong answer!");
-                    window.location.href = "wrong.html?sc=u";
+                    window.location.href = "wrong.html?sc="+v1;
                 }
             });
         }

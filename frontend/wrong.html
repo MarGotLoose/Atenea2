@@ -175,20 +175,24 @@
                 </a>
             </div>
         </div>
-        <div class="container">
-            <img src="img/wrong.png" width="100%" height="auto">
-            <audio autoplay src="audio/wrong.mp3" type="audio/mp3"></audio>
-            <audio autoplay src="audio/screendialogs/retry.mp3" type="audio/mp3"></audio>
-            <div class="col-md-6" style="left: 40%;">
-                <button type="button" class="btn btn-warning mr-5" onclick="openNext()">
-                    <span class="glyphicon glyphicon-chevron-right"></span> Siguiente
-                </button>
-            </div> 
-            <div class="col-md-6" style="left: 40%;">
-                <button type="button" class="btn btn-warning mr-5" onclick="retry()">
-                    <span class="glyphicon glyphicon-repeat"></span> Volver a intentar
-                </button>
-            </div> 
+        <div class="row">
+            <div class="col-md-8 media">
+                <img src="img/wrong.png" width="100%" height="auto">
+                <audio autoplay src="audio/wrong.mp3" type="audio/mp3"></audio>
+                <audio autoplay src="audio/screendialogs/retry.mp3" type="audio/mp3"></audio>
+            </div>
+            <div class="col-md-3" style="align-items: center; position: absolute; right: 0; bottom: 15px;">
+                <div>
+                    <button type="button" class="btn btn-warning btnSize" onclick="openNext();">
+                        <span class="glyphicon glyphicon-chevron-right"></span> Siguiente
+                    </button>
+                </div>
+                <div style="margin-top: 10px;">
+                    <button type="button" class="btn btn-warning btnSize" onclick="retry()">
+                        <span class="glyphicon glyphicon-repeat"></span> Volver a intentar
+                    </button>
+                </div>
+            </div>
         </div>
     </body>
 </html>

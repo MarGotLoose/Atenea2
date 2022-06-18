@@ -24,41 +24,11 @@
             return window.location.href;
         }
         function openNext() {
-            if(v1=="j"){
-                window.location.href="animalgame-whosthis-rabbit.html"
+            if(v1=="fish"){
+                window.location.href = "animalgame-whosthis.html";
             }
-            else if(v1=="k"){
-                window.location.href="animalgame-whosthis-pig.html"
-            }
-            else if(v1=="l"){
-                window.location.href="animalgame-whosthis-horse.html"
-            }
-            else if(v1=="m"){
-                window.location.href="animalgame-whosthis-sheep.html"
-            }
-            else if(v1=="n"){
-                window.location.href="animalgame-whosthis-chicken.html"
-            }
-            else if(v1=="o"){
-                window.location.href="animalgame-whosthis-turtle.html"
-            }
-            else if(v1=="p"){
-                window.location.href="animalgame-whosthis-fish.html"
-            }
-            else if(v1=="q"){
-                window.location.href="animalgame-whosthis-cat.html"
-            }
-            else if(v1=="r"){
-                window.location.href="animalgame-whosthis-bird.html"
-            }
-            else if(v1=="s"){
-                window.location.href="animalgame-whosthis-dog.html"
-            }
-            else if(v1=="t"){
-                window.location.href="animalgame-whosthis-mouse.html"
-            }
-            else if(v1=="u"){
-                window.location.href = "animalgames-whosthis.html";
+            else{
+                window.location.href = "animalgame-whosthis-fish.html?sc="+v1;
             }
         }
     </script>
@@ -85,12 +55,12 @@
                 </a>
             </div>
         </div>
-        <div class="container">
-            <div>
-                <video controls autoplay src="video/video-turtle.mp4" width="125%" height="auto" type="video/mp4"></video>
+        <div class="row">
+            <div class="col-md-8 media">
+                <video controls autoplay src="video/video-turtle.mp4" width="130%" height="auto" type="video/mp4"></video>
             </div>
-            <div class="col-md-6" style="left: 40%;">
-                <button type="button" class="btn btn-warning mr-5" onclick="openNext();">
+            <div class="col-md-2" style="align-items: center; position: absolute; right: 0; bottom: 15px;">
+                <button type="button" class="btn btn-warning btnSize" onclick="openNext();">
                     <span class="glyphicon glyphicon-chevron-right"></span> Siguiente
                 </button>
             </div>
