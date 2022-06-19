@@ -42,6 +42,7 @@
             <div class="col-md-8 media">
                 <img src="img/whosthis/question.png" width="75%" height="auto">
                 <audio autoplay src="audio/whosthis/rabbit-sound.mp3" type="audio/mp3"></audio>
+                <audio autoplay id="backgroundSound" src="audio/waiting.mp3" type="audio/mp3"></audio>
             </div>      
             <div class="col-md-2" style="align-items: center; position: absolute; right: 0; bottom: 15px;">
                 <button id="replayBtn" type="button" class="btn btn-warning btnSize">
@@ -56,6 +57,7 @@
         var url = getURL();
         var v1 = url.split("=").pop();
         const audio = new Audio("audio/whosthis/rabbit-sound.mp3");
+        document.getElementById("backgroundSound").volume = 0.2;
         const button = document.getElementById("replayBtn");
         button.addEventListener("click", () => {
             audio.play();

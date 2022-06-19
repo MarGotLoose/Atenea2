@@ -42,12 +42,14 @@
             <div class="col-md-8 media">
                 <img src="img/howmany/books4.jpg" width="75%" height="auto">
                 <audio autoplay src="audio/screendialogs/howmany-b.mp3" type="audio/mp3"></audio>
+                <audio autoplay id="backgroundSound" src="audio/waiting.mp3" type="audio/mp3"></audio>
             </div>      
         </div>
     </body>
 
     <script>
         var xhr = null;
+        document.getElementById("backgroundSound").volume = 0.2;
         function sleep(ms){
             return new Promise(resolve => setTimeout(resolve, ms));
         }
