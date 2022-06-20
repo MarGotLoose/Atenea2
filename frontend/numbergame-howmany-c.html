@@ -50,9 +50,6 @@
     <script>
         var xhr = null;
         document.getElementById("backgroundSound").volume = 0.2;
-        function sleep(ms){
-            return new Promise(resolve => setTimeout(resolve, ms));
-        }
         getXmlHttpRequestObject = function () {
             if (!xhr) {
                 // Create a new XMLHttpRequest object 
@@ -61,15 +58,16 @@
             return xhr;
         };
         async function sendDataCallback() {
-            sleep(25000).then(() => {
-                // Check response
-                if (xhr.status == 201) {
-                    console.log("Correct answer!");
-                    window.location.href = "correct.html?sc=c";
-                }
-                else if(xhr.status == 202){
-                    console.log("Wrong answer!");
-                    window.location.href = "wrong.html?sc=c";
+            xhr.addEventListener("readystatechange", () => {
+                if (xhr.readyState === 4){
+                    if (xhr.status == 201) {
+                        console.log("Correct answer!");
+                        window.location.href = "correct.html?sc=c";
+                    }
+                    else if(xhr.status == 202){
+                        console.log("Wrong answer!");
+                        window.location.href = "wrong.html?sc=c";
+                    }
                 }
             });
         }

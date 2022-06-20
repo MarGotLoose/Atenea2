@@ -65,9 +65,6 @@
         function getURL() {
             return window.location.href;
         }
-        function sleep(ms){
-            return new Promise(resolve => setTimeout(resolve, ms));
-        }
         getXmlHttpRequestObject = function () {
             if (!xhr) {
                 // Create a new XMLHttpRequest object 
@@ -76,15 +73,16 @@
             return xhr;
         };
         async function sendDataCallback() {
-            sleep(25000).then(() => {
-                // Check response
-                if (xhr.status == 201) {
-                    console.log("Correct answer!");
-                    window.location.href = "correct-dog.html?sc="+v1;
-                }
-                else if(xhr.status == 202){
-                    console.log("Wrong answer!");
-                    window.location.href = "wrong.html?sc="+v1;
+            xhr.addEventListener("readystatechange", () => {
+                if (xhr.readyState === 4){
+                    if (xhr.status == 201) {
+                        console.log("Correct answer!");
+                        window.location.href = "correct-dog.html?sc="+v1;
+                    }
+                    else if(xhr.status == 202){
+                        console.log("Wrong answer!");
+                        window.location.href = "wrong.html?sc="+v1;
+                    }
                 }
             });
         }
