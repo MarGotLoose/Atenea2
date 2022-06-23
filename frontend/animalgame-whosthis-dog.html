@@ -23,7 +23,7 @@
                     <img src="img/icon.png" width="50" height="50" class="d-inline-block align-top">
                 </div>
                 <div>
-                    <h2 style="font-size: 50px">Atenea</h2>
+                    <h2 style="font-size: 45px">Atenea</h2>
                 </div>
             </div>
             <div class="col-md-8">
@@ -42,12 +42,18 @@
             <div class="col-md-8 media">
                 <img src="img/whosthis/question.png" width="75%" height="auto">
                 <audio autoplay src="audio/whosthis/dog-sound.mp3" type="audio/mp3"></audio>
-                <audio autoplay id="backgroundSound" src="audio/waiting.mp3" type="audio/mp3"></audio>
             </div>      
             <div class="col-md-2" style="align-items: center; position: absolute; right: 0; bottom: 15px;">
-                <button id="replayBtn" type="button" class="btn btn-warning btnSize">
-                    <span class="glyphicon glyphicon-play"></span> Repetir
-                </button>
+                <div>
+                    <button id="replayBtn" type="button" class="btn btn-warning btnSize">
+                        <span class="glyphicon glyphicon-play"></span> Repetir
+                    </button>
+                </div>
+                <div style="margin-top: 10px;">
+                    <button type="button" class="btn btn-warning btnSize" onclick="skip();">
+                        <span class="glyphicon glyphicon-forward"></span> Saltar
+                    </button>
+                </div>
             </div>
         </div>
     </body>
@@ -64,6 +70,9 @@
         });
         function getURL() {
             return window.location.href;
+        }
+        function skip() {
+            window.location.href='animalgame-whosthis-mouse.html?sc='+v1;
         }
         getXmlHttpRequestObject = function () {
             if (!xhr) {
