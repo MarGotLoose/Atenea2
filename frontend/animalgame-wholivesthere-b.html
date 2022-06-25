@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Atenea</title>
+        <link rel="icon" href="img/favicon.ico"/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+        <link rel="stylesheet" href="lib/style.css">
+    </head>
+
+    <body id="bg" style="background-image: url('img/background.jpg');">
+        <div class="header row">
+            <div class="col-md-2" style="text-align: center;">
+                <div style="float: left;">
+                    <img src="img/icon.png" width="50" height="50" class="d-inline-block align-top">
+                </div>
+                <div>
+                    <h2 style="font-size: 45px">Atenea</h2>
+                </div>
+            </div>
+            <div class="col-md-8">
+                ¿Quién vive ahí?
+            </div>
+            <div class="col-md-2" style="text-align: center;">
+                <a href="index.html" class="btn" role="button">
+                    <span class="glyphicon glyphicon-home" aria-hidden="true" style="font-size: 30px; color: black;"></span>
+                </a>
+                <a href="animalgames.html" class="btn" role="button">
+                    <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true" style="font-size: 30px; color: black;"></span>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <audio autoplay src="audio/screendialogs/wholivesthere.mp3" type="audio/mp3"></audio>
+            <div class="col-md-8 media">
+                <img src="img/wholivesthere/cage.jpg" width="75%" height="auto">
+                <audio autoplay id="backgroundSound" src="audio/waiting.mp3" type="audio/mp3"></audio>
+            </div>  
+            <div class="col-md-2" style="align-items: center; position: absolute; right: 0; bottom: 15px;">
+                <button type="button" class="btn btn-warning btnSize" onclick="window.location='animalgame-wholivesthere-c.html';">
+                    <span class="glyphicon glyphicon-forward"></span> Saltar
+                </button>
+            </div> 
+        </div>
+    </body>
+
+    <script>
+        var xhr = null;
+        document.getElementById("backgroundSound").volume = 0.2;
+        getXmlHttpRequestObject = function () {
+            if (!xhr) {
+                // Create a new XMLHttpRequest object 
+                xhr = new XMLHttpRequest();
+            }
+            return xhr;
+        };
+        async function sendDataCallback() {
+            xhr.addEventListener("readystatechange", () => {
+                if (xhr.readyState === 4){
+                    if (xhr.status == 201) {
+                        console.log("Correct answer!");
+                        window.location.href = "correct.html?sc=k";
+                    }
+                    else if(xhr.status == 202){
+                        console.log("Wrong answer!");
+                        window.location.href = "wrong.html?sc=k";
+                    }
+                }
+            });
+        }
+        function sendData() {
+            xhr = getXmlHttpRequestObject();
+            xhr.onreadystatechange = sendDataCallback;
+            // asynchronous requests
+            xhr.open("POST", "http://localhost:6969/check", true);
+            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            // Send the request over the network
+            xhr.send(JSON.stringify({"data": 21}));
+        }
+    </script>
+</html>
