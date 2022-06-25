@@ -18,7 +18,8 @@
 
     <script>
         var url = getURL();
-        var v1 = url.split("=").pop();
+        var v1 = url.substring(url.indexOf("=")+1, url.indexOf("!"));
+        var v2 = url.split(";").pop();
         console.log(v1);
         function getURL() {
             return window.location.href;
@@ -51,40 +52,40 @@
             else if(v1=="i"){
                 window.location.href = "numbergames.html";
             }
-            else if(v1=="j"){
-                window.location.href="animalgame-whosthis-rabbit.html"
+            else if(v2=="cow"){
+                window.location.href="animalgame-whosthis-rabbit.html?sc="+v1;
             }
-            else if(v1=="k"){
-                window.location.href="animalgame-whosthis-pig.html"
+            else if(v2=="rabbit"){
+                window.location.href="animalgame-whosthis-pig.html?sc="+v1;
             }
-            else if(v1=="l"){
-                window.location.href="animalgame-whosthis-horse.html"
+            else if(v2=="pig"){
+                window.location.href="animalgame-whosthis-horse.html?sc="+v1;
             }
-            else if(v1=="m"){
-                window.location.href="animalgame-whosthis-sheep.html"
+            else if(v2=="horse"){
+                window.location.href="animalgame-whosthis-sheep.html?sc="+v1;
             }
-            else if(v1=="n"){
-                window.location.href="animalgame-whosthis-chicken.html"
+            else if(v2=="sheep"){
+                window.location.href="animalgame-whosthis-chicken.html?sc="+v1;
             }
-            else if(v1=="o"){
-                window.location.href="animalgame-whosthis-turtle.html"
+            else if(v2=="chicken"){
+                window.location.href="animalgame-whosthis-turtle.html?sc="+v1;
             }
-            else if(v1=="p"){
-                window.location.href="animalgame-whosthis-fish.html"
+            else if(v2=="turtle"){
+                window.location.href="animalgame-whosthis-fish.html?sc="+v1;
             }
-            else if(v1=="q"){
-                window.location.href="animalgame-whosthis-cat.html"
+            else if(v2=="fish"){
+                window.location.href="animalgame-whosthis-cat.html?sc="+v1;
             }
-            else if(v1=="r"){
-                window.location.href="animalgame-whosthis-bird.html"
+            else if(v2=="cat"){
+                window.location.href="animalgame-whosthis-bird.html?sc="+v1;
             }
-            else if(v1=="s"){
-                window.location.href="animalgame-whosthis-dog.html"
+            else if(v2=="bird"){
+                window.location.href="animalgame-whosthis-dog.html?sc="+v1;
             }
-            else if(v1=="t"){
-                window.location.href="animalgame-whosthis-mouse.html"
+            else if(v2=="dog"){
+                window.location.href="animalgame-whosthis-mouse.html?sc="+v1;
             }
-            else if(v1=="u"){
+            else if(v2=="mouse"){
                 window.location.href = "animalgames-whosthis.html";
             }
         }
@@ -117,41 +118,41 @@
             else if(v1=="i"){
                 window.location.href = "numbergame-howmany-i.html";
             }
-            else if(v1=="j"){
-                window.location.href="animalgame-whosthis-cow.html"
+            else if(v2=="cow"){
+                window.location.href="animalgame-whosthis-cow.html?sc="+v1;
             }
-            else if(v1=="k"){
-                window.location.href="animalgame-whosthis-rabbit.html"
+            else if(v2=="rabbit"){
+                window.location.href="animalgame-whosthis-rabbit.html?sc="+v1;
             }
-            else if(v1=="l"){
-                window.location.href="animalgame-whosthis-pig.html"
+            else if(v2=="pig"){
+                window.location.href="animalgame-whosthis-pig.html?sc="+v1;
             }
-            else if(v1=="m"){
-                window.location.href="animalgame-whosthis-horse.html"
+            else if(v2=="horse"){
+                window.location.href="animalgame-whosthis-horse.html?sc="+v1;
             }
-            else if(v1=="n"){
-                window.location.href="animalgame-whosthis-sheep.html"
+            else if(v2=="sheep"){
+                window.location.href="animalgame-whosthis-sheep.html?sc="+v1;
             }
-            else if(v1=="o"){
-                window.location.href="animalgame-whosthis-chicken.html"
+            else if(v2=="chicken"){
+                window.location.href="animalgame-whosthis-chicken.html?sc="+v1;
             }
-            else if(v1=="p"){
-                window.location.href="animalgame-whosthis-turtle.html"
+            else if(v2=="p"){
+                window.location.href="animalgame-whosthis-turtle.html?sc="+v1;
             }
-            else if(v1=="q"){
-                window.location.href="animalgame-whosthis-fish.html"
+            else if(v2=="fish"){
+                window.location.href="animalgame-whosthis-fish.html?sc="+v1;
             }
-            else if(v1=="r"){
-                window.location.href="animalgame-whosthis-cat.html"
+            else if(v2=="cat"){
+                window.location.href="animalgame-whosthis-cat.html?sc="+v1;
             }
-            else if(v1=="s"){
-                window.location.href="animalgame-whosthis-bird.html"
+            else if(v2=="bird"){
+                window.location.href="animalgame-whosthis-bird.html?sc="+v1;
             }
-            else if(v1=="t"){
-                window.location.href="animalgame-whosthis-dog.html"
+            else if(v2=="dog"){
+                window.location.href="animalgame-whosthis-dog.html?sc="+v1;
             }
-            else if(v1=="u"){
-                window.location.href = "animalgames-whosthis-mouse.html";
+            else if(v2=="mouse"){
+                window.location.href = "animalgames-whosthis-mouse.html?sc="+v1;
             }
         }
     </script>

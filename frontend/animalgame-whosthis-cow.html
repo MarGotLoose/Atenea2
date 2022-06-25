@@ -63,7 +63,6 @@
         var url = getURL();
         var v1 = url.split("=").pop();
         const audio = new Audio("audio/whosthis/cow-sound.mp3");
-        document.getElementById("backgroundSound").volume = 0.2;
         const button = document.getElementById("replayBtn");
         button.addEventListener("click", () => {
             audio.play();
@@ -90,7 +89,7 @@
                     }
                     else if(xhr.status == 202){
                         console.log("Wrong answer!");
-                        window.location.href = "wrong.html?sc="+v1;
+                        window.location.href = "wrong.html?sc="+v1+"!er;cow";
                     }
                 }
             });
